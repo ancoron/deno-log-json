@@ -1,0 +1,8 @@
+{
+  "exclude": [
+    ".deno/",
+    "node/",
+    "python/",
+    "*.log"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Deno JSON Logging Tests",
+  "lspclient": {
+    "servers": {
+      "javascript": {
+        "command": ["deno", "lsp"],
+        "rootIndicationFileNames": ["deno.json"],
+        "highlightingModeRegex": "^JavaScript.*$"
+      }
+    }
+  }
+}
