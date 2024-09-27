@@ -4,6 +4,8 @@ SCRIPTS = *.ts *.js
 
 SUB_DIRS = node python
 
+LOG_FILE ?= deno-test.log
+
 LC_ALL = C
 export LC_ALL
 
@@ -32,7 +34,7 @@ clean-logs: clean
 	done
 
 *.[jt]s: install
-	$(STATS_CMD) deno run "$@" > "$@.log"
+	$(STATS_CMD) deno run "$@" > "$(LOG_FILE)"
 
 all: $(SCRIPTS)
 

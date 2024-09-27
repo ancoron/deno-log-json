@@ -81,21 +81,22 @@ Results:
 
 | Tool | Script | Total Seconds (stddev) | System Seconds (stddev) | User Seconds (stddev) | RSS Memory (stddev) |
 | --- | --- | --- | --- | --- | --- |
-| python | python/orjson-print.py | 2.07 (0.14) | 0.20 (0.04) | 1.86 (0.1) | 12.1 MiB (268 KiB) |
-| bun | node/node-console.js | 2.13 (0.08) | 1.13 (0.06) | 1.03 (0.05) | 115.2 MiB (1909 KiB) |
-| bun | node/node-stream.js | 2.66 (0.23) | 1.19 (0.13) | 1.51 (0.15) | 120.2 MiB (1595 KiB) |
-| node | node/node-stream.js | 3.46 (0.24) | 1.14 (0.07) | 2.35 (0.18) | 72.6 MiB (230 KiB) |
-| pypy | python/json-print.py | 3.50 (0.27) | 0.29 (0.02) | 3.20 (0.27) | 99.2 MiB (448 KiB) |
-| bun | node/pino-log.js | 3.70 (0.18) | 1.29 (0.12) | 2.46 (0.1) | 139.2 MiB (1143 KiB) |
-| node | node/pino-log.js | 4.62 (0.27) | 1.18 (0.1) | 3.51 (0.21) | 76.1 MiB (263 KiB) |
-| deno | deno-stdout.ts | 4.65 (0.23) | 2.17 (0.06) | 2.68 (0.22) | 60.3 MiB (1250 KiB) |
-| deno | deno-log-stdout.ts | 4.81 (0.66) | 2.09 (0.24) | 2.90 (0.44) | 63.7 MiB (863 KiB) |
-| node | node/node-console.js | 4.91 (0.28) | 1.22 (0.07) | 3.63 (0.31) | 75.4 MiB (268 KiB) |
-| deno | deno-stream.ts | 5.21 (0.37) | 2.03 (0.12) | 3.37 (0.26) | 63.9 MiB (863 KiB) |
-| python | python/json-print.py | 6.64 (0.43) | 0.25 (0.03) | 6.38 (0.4) | 9.4 MiB (200 KiB) |
-| deno | deno-console.ts | 7.25 (2.91) | 2.23 (0.75) | 5.00 (2.12) | 59.6 MiB (286 KiB) |
-| deno | deno-log.ts | 8.43 (1.12) | 2.31 (0.19) | 6.20 (0.91) | 62.5 MiB (1578 KiB) |
-| python | python/orjson-log-opt.py | 15.16 (1.28) | 1.27 (0.08) | 13.86 (1.18) | 13.3 MiB (235 KiB) |
-| pypy | python/json-log.py | 18.71 (1.25) | 3.54 (0.22) | 14.91 (1.01) | 101.8 MiB (343 KiB) |
-| python | python/orjson-log.py | 19.40 (1.64) | 1.48 (0.15) | 17.83 (1.49) | 13.3 MiB (163 KiB) |
-| python | python/json-log.py | 24.73 (2.14) | 1.65 (0.12) | 23.11 (2.01) | 13.3 MiB (302 KiB) |
+| python | python/orjson-stdout.py | 1.89 (0.05) | 0.26 (0.02) | 1.62 (0.05) | 12.3 MiB (100 KiB) |
+| bun | node/node-console.js | 1.96 (0.03) | 1.08 (0.06) | 0.88 (0.07) | 116.9 MiB (1261 KiB) |
+| python | python/orjson-print.py | 2.02 (0.07) | 0.20 (0.03) | 1.82 (0.08) | 12.3 MiB (82 KiB) |
+| bun | node/node-stream.js | 2.47 (0.02) | 1.10 (0.05) | 1.39 (0.05) | 119 MiB (1721 KiB) |
+| bun | node/pino-log.js | 3.27 (0.05) | 1.14 (0.04) | 2.23 (0.07) | 139.3 MiB (1163 KiB) |
+| pypy | python/json-print.py | 3.36 (0.03) | 0.25 (0.03) | 3.09 (0.03) | 99.4 MiB (276 KiB) |
+| node | node/node-stream.js | 3.38 (0.05) | 1.09 (0.07) | 2.33 (0.06) | 72.7 MiB (193 KiB) |
+| deno | deno-stdout.ts | 3.64 (0.06) | 1.22 (0.06) | 2.59 (0.03) | 61.2 MiB (1024 KiB) |
+| deno | deno-log-stdout.ts | 3.73 (0.06) | 1.11 (0.06) | 2.77 (0.05) | 64.1 MiB (1189 KiB) |
+| deno | deno-stream.ts | 4.14 (0.07) | 1.17 (0.04) | 3.14 (0.08) | 64.9 MiB (888 KiB) |
+| node | node/pino-log.js | 4.45 (0.09) | 1.16 (0.05) | 3.33 (0.07) | 76.2 MiB (284 KiB) |
+| node | node/node-console.js | 4.69 (0.12) | 1.18 (0.04) | 3.60 (0.16) | 75 MiB (359 KiB) |
+| deno | deno-console.ts | 5.81 (0.15) | 1.14 (0.05) | 4.67 (0.14) | 59.7 MiB (1441 KiB) |
+| python | python/json-print.py | 6.31 (0.11) | 0.20 (0.02) | 6.07 (0.12) | 9.4 MiB (83 KiB) |
+| deno | deno-log.ts | 7.07 (0.14) | 1.15 (0.06) | 5.96 (0.14) | 62.3 MiB (1149 KiB) |
+| python | python/orjson-log-opt.py | 14.36 (0.28) | 1.22 (0.04) | 13.08 (0.3) | 13.7 MiB (53 KiB) |
+| pypy | python/json-log.py | 16.96 (0.14) | 3.36 (0.14) | 13.57 (0.19) | 102.3 MiB (291 KiB) |
+| python | python/orjson-log.py | 17.69 (0.47) | 1.41 (0.07) | 16.28 (0.43) | 13.6 MiB (169 KiB) |
+| python | python/json-log.py | 23.10 (0.29) | 1.53 (0.06) | 21.52 (0.28) | 13.5 MiB (179 KiB) |

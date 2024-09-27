@@ -5,6 +5,8 @@ SCRIPTS = *.js
 BIN_NODE = $(shell which node)
 BIN_BUN = $(shell which bun)
 
+LOG_FILE ?= node-test.log
+
 LC_ALL = C
 export LC_ALL
 
@@ -24,7 +26,7 @@ clean:
 	-rm -f *.log *.out
 
 *.js: install
-	$(STATS_CMD) $(BIN_NODE) "$@" > "$@.log"
-	$(STATS_CMD) $(BIN_BUN) run "$@" > "bun-$@.log"
+	$(STATS_CMD) $(BIN_NODE) "$@" > "$(LOG_FILE)"
+	$(STATS_CMD) $(BIN_BUN) run "$@" > "$(LOG_FILE)"
 
 all: $(SCRIPTS)
