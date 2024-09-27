@@ -48,6 +48,7 @@ Make sure you have the following CLI tools/commands installed:
 * `bun`
 * `python` (Python 3)
 * `pypy3`
+* `virtualenv`
 * `mlr`: [Miller](https://miller.readthedocs.io/en/latest/)
 
 Now execute the following command:
@@ -73,7 +74,6 @@ hardware (all on Linux, though).
 Machine specs:
 
 * CPU: AMD Ryzen 7 5700G
-* Disk  Type: NVMe
 * OS: Arch Linux (Kernel 6.10.9-arch1-2, amd_pstate=passive)
 * Storage: ext4 in cryptlvm (LUKS) @ NVMe
 
