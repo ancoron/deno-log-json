@@ -6,7 +6,7 @@ SCRIPTS = *.py
 BIN_PYTHON = $(shell which python3)
 BIN_PYPY = $(shell which pypy3)
 
-LOG_FILE ?= python-test.log
+LOG_FILE ?= .local/python-test.log
 
 LC_ALL = C
 export LC_ALL
@@ -31,7 +31,11 @@ clean-install:
 clean:
 	-rm -f *.log *.out
 
-*.py: install
+$(LOG_FILE):
+	mkdir -p "$$(dirname "$(LOG_FILE)")"
+	touch "$(LOG_FILE)"
+
+*.py: install $(LOG_FILE)
 	$(STATS_CMD) .venv/bin/python "$@" > "$(LOG_FILE)"
 	[[ "$@" =~ ^orjson.* ]] || $(STATS_CMD) .venv-pypy/bin/pypy "$@" > "$(LOG_FILE)"
 

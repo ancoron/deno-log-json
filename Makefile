@@ -1,10 +1,10 @@
 STATS_LOG = stats.log
 STATS_CMD = /usr/bin/time -f '%C,,%e,%P,%U,%S,%M,%O' -a -o "$(STATS_LOG)"
-SCRIPTS = *.ts *.js
+SCRIPTS = deno-*.ts deno-*.js
 
 SUB_DIRS = node python
 
-LOG_FILE ?= deno-test.log
+LOG_FILE ?= .local/deno-test.log
 
 LC_ALL = C
 export LC_ALL
@@ -33,8 +33,12 @@ clean-logs: clean
 		$(MAKE) -C "$$d" clean; \
 	done
 
-*.[jt]s: install
-	$(STATS_CMD) deno run "$@" > "$(LOG_FILE)"
+$(LOG_FILE):
+	mkdir -p "$$(dirname "$(LOG_FILE)")"
+	touch "$(LOG_FILE)"
+
+*.[jt]s: install $(LOG_FILE)
+	$(STATS_CMD) deno run --allow-read "$@" > "$(LOG_FILE)"
 
 all: $(SCRIPTS)
 
@@ -60,6 +64,20 @@ stats-agg:
 
 	# just print out the data nicely formatted
 	mlr --m2p cat stats_table.md
+
+stats-compare: stats_compare.md
+	mlr --imd --omd \
+		put '$$cpu = $$cpu . " (" . (round($$cpu / $$idle * 100) / 100) . ")"; $$io = $$io . " (" . (round($$io / $$idle * 100) / 100) . ")"' \
+		then rename 'idle,Idle,cpu,CPU (slowdown),io,I/O (slowdown)' \
+		stats_compare.md
+	echo
+	mlr --imd --omd \
+		stats1 -g 'Tool' -a 'sum' -f 'idle,cpu,io' \
+		then put '$$cpu_sum = round($$cpu_sum / $$idle_sum * 100) / 100; $$io_sum = round($$io_sum / $$idle_sum * 100) / 100; $$avg = round(($$cpu_sum + $$io_sum) / 2 * 100) / 100' \
+		then cut -f 'Tool,cpu_sum,io_sum,avg' \
+		then sort -nf 'avg' \
+		then rename 'cpu_sum,Slowdown (CPU),io_sum,Slowdown (I/O),avg,Slowdown (average)' \
+		stats_compare.md
 
 RUNS = 7
 run-bench-x: clean-stats clean-logs
