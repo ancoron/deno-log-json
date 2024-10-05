@@ -1,6 +1,6 @@
 STATS_LOG = ../stats.log
 STATS_CMD = /usr/bin/time -f '%C,node,%e,%P,%U,%S,%M,%O' -a -o "$(STATS_LOG)"
-SCRIPTS = *.js
+SCRIPTS = node-*.js
 
 BIN_NODE = $(shell which node)
 BIN_BUN = $(shell which bun)
