@@ -1,5 +1,3 @@
-const log_enc = new TextEncoder();
-
 const worker = new Worker(
   import.meta.resolve("./worker-stdout.js"),
   {
