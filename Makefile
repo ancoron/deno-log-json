@@ -12,9 +12,11 @@ export LC_ALL
 DENO_DIR = .deno
 export DENO_DIR
 
-.PHONY: install clean-install clean clean-stats $(SCRIPTS) $(SUB_DIRS)
+.PHONY: install clean-install clean clean-stats stats_compare.md $(SCRIPTS) $(SUB_DIRS)
 
 .DEFAULT_GOAL := all
+
+BENCH_CASE ?=
 
 install:
 	deno cache --check $(SCRIPTS)
@@ -38,7 +40,7 @@ $(LOG_FILE):
 	touch "$(LOG_FILE)"
 
 *.[jt]s: install $(LOG_FILE)
-	$(STATS_CMD) deno run --allow-read "$@" > "$(LOG_FILE)"
+	$(STATS_CMD) deno run --allow-read --allow-env --allow-sys "$@" > "$(LOG_FILE)"
 
 all: $(SCRIPTS)
 
@@ -64,6 +66,15 @@ stats-agg:
 
 	# just print out the data nicely formatted
 	mlr --m2p cat stats_table.md
+	[ -z "$(BENCH_CASE)" ] || cp stats_agg.json "stats_agg.$(BENCH_CASE).json"
+
+stats_compare.md: stats_agg.idle.json stats_agg.cpu.json stats_agg.io.json
+	mlr --ijson --omd \
+		join -j command --lp "cpu_" -f stats_agg.cpu.json \
+		then join -j command --lp "io_" -f stats_agg.io.json \
+		then cut -o -f 'tool,script,wall_seconds_p50,cpu_wall_seconds_p50,io_wall_seconds_p50,max_rss_mb_p50,cpu_max_rss_mb_p50,io_max_rss_mb_p50' \
+		then rename 'tool,Tool,script,Script,wall_seconds_p50,idle,cpu_wall_seconds_p50,cpu,io_wall_seconds_p50,io,max_rss_mb_p50,mem,cpu_max_rss_mb_p50,cpu_mem,io_max_rss_mb_p50,io_mem' \
+		then sort -nf 'Tool,io' stats_agg.idle.json > "$@"
 
 stats-compare: stats_compare.md
 	mlr --imd --omd \
@@ -77,6 +88,14 @@ stats-compare: stats_compare.md
 		then cut -f 'Tool,cpu_sum,io_sum,avg' \
 		then sort -nf 'avg' \
 		then rename 'cpu_sum,Slowdown (CPU),io_sum,Slowdown (I/O),avg,Slowdown (average)' \
+		stats_compare.md
+	echo
+	mlr --imd --omd \
+		stats1 -g 'Tool' -a 'count,sum' -f 'mem,cpu_mem,io_mem' \
+		then put '$$mem = round($$mem_sum / $$mem_count * 10) / 10; $$io_mem = round($$io_mem_sum / $$io_mem_count * 10) / 10; $$cpu_mem = round($$cpu_mem_sum / $$cpu_mem_count * 10) / 10' \
+		then cut -o -f 'Tool,mem,cpu_mem,io_mem' \
+		then sort -nf 'io_mem' \
+		then rename 'mem,Idle (MiB),cpu_mem,CPU (MiB),io_mem,I/O (MiB)' \
 		stats_compare.md
 
 RUNS = 7
