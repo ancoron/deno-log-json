@@ -79,6 +79,7 @@ stats_compare.md: stats_agg.idle.json stats_agg.cpu.json stats_agg.io.json
 stats-compare: stats_compare.md
 	mlr --imd --omd \
 		put '$$cpu = $$cpu . " (" . (round($$cpu / $$idle * 100) / 100) . ")"; $$io = $$io . " (" . (round($$io / $$idle * 100) / 100) . ")"' \
+		then cut -f 'Tool,Script,idle,cpu,io' \
 		then rename 'idle,Idle,cpu,CPU (slowdown),io,I/O (slowdown)' \
 		stats_compare.md
 	echo
@@ -91,11 +92,10 @@ stats-compare: stats_compare.md
 		stats_compare.md
 	echo
 	mlr --imd --omd \
-		stats1 -g 'Tool' -a 'count,sum' -f 'mem,cpu_mem,io_mem' \
-		then put '$$mem = round($$mem_sum / $$mem_count * 10) / 10; $$io_mem = round($$io_mem_sum / $$io_mem_count * 10) / 10; $$cpu_mem = round($$cpu_mem_sum / $$cpu_mem_count * 10) / 10' \
-		then cut -o -f 'Tool,mem,cpu_mem,io_mem' \
-		then sort -nf 'io_mem' \
-		then rename 'mem,Idle (MiB),cpu_mem,CPU (MiB),io_mem,I/O (MiB)' \
+		stats1 -g 'Tool' -a 'p50,max' -f 'mem,cpu_mem,io_mem' \
+		then cut -o -f 'Tool,mem_p50,mem_max,cpu_mem_p50,cpu_mem_max,io_mem_p50,io_mem_max' \
+		then sort -nf 'io_mem_p50' \
+		then rename 'mem_p50,Idle (median),mem_max,Idle (max),cpu_mem_p50,CPU (median),cpu_mem_max,CPU (max),io_mem_p50,I/O (median),io_mem_max,I/O (max)' \
 		stats_compare.md
 
 RUNS = 7

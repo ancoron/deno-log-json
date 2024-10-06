@@ -140,32 +140,32 @@ how it probably will behave under your specific workload:
 
 | Tool | Script | Total Seconds (stddev) | System Seconds (stddev) | User Seconds (stddev) | RSS Memory (stddev) |
 | --- | --- | --- | --- | --- | --- |
-| bun | node/node-stdout-worker.js | 0.92 (0.14) | 0.39 (0.09) | 1.12 (0.16) | 155.2 MiB (5886 KiB) |
-| bun | node/node-stdout-buffer.js | 1.07 (0.07) | 0.29 (0.02) | 0.80 (0.08) | 121.4 MiB (945 KiB) |
-| node | node/node-stdout-worker.js | 1.65 (0.09) | 0.28 (0.03) | 2.11 (0.09) | 362.5 MiB (434 KiB) |
-| deno | deno-stdout-worker.ts | 1.76 (0.12) | 0.36 (0.05) | 2.09 (0.13) | 98.3 MiB (639 KiB) |
-| python | python/orjson-stdout.py | 1.88 (0.04) | 0.21 (0.02) | 1.63 (0.04) | 12.3 MiB (125 KiB) |
-| bun | node/node-console.js | 1.94 (0.09) | 1.04 (0.04) | 0.91 (0.08) | 116.1 MiB (1019 KiB) |
-| python | python/orjson-print.py | 2.04 (0.06) | 0.21 (0.02) | 1.83 (0.04) | 12.3 MiB (101 KiB) |
-| bun | node/node-stream.js | 2.55 (0.09) | 1.16 (0.05) | 1.44 (0.06) | 117.8 MiB (798 KiB) |
-| node | node/node-stdout-buffer.js | 2.63 (0.1) | 0.38 (0.06) | 2.45 (0.1) | 82.4 MiB (161 KiB) |
-| deno | deno-stdout-buffer.ts | 2.65 (0.07) | 0.38 (0.04) | 2.45 (0.07) | 70.6 MiB (548 KiB) |
-| pypy | python/json-print.py | 3.45 (0.08) | 0.25 (0.02) | 3.18 (0.07) | 98.7 MiB (205 KiB) |
-| bun | node/node-pino.js | 3.49 (0.13) | 1.19 (0.07) | 2.29 (0.1) | 137.9 MiB (789 KiB) |
-| node | node/node-stream.js | 3.55 (0.19) | 1.16 (0.04) | 2.45 (0.17) | 80.3 MiB (271 KiB) |
-| deno | deno-stdout.ts | 3.68 (0.19) | 1.20 (0.08) | 2.61 (0.15) | 67.8 MiB (911 KiB) |
-| deno | deno-log-stdout.ts | 4.07 (0.11) | 1.25 (0.1) | 2.96 (0.08) | 70.2 MiB (722 KiB) |
-| deno | deno-stream.ts | 4.15 (0.1) | 1.16 (0.05) | 3.16 (0.1) | 71.8 MiB (1448 KiB) |
-| deno | deno-log.ts | 4.22 (0.19) | 1.15 (0.08) | 3.10 (0.2) | 71.4 MiB (442 KiB) |
-| deno | deno-console.ts | 4.59 (0.16) | 1.17 (0.06) | 3.49 (0.11) | 69.7 MiB (264 KiB) |
-| node | node/node-pino.js | 4.60 (0.1) | 1.19 (0.05) | 3.50 (0.08) | 83.8 MiB (265 KiB) |
-| node | node/node-console.js | 4.76 (0.11) | 1.13 (0.06) | 3.70 (0.08) | 81.3 MiB (128 KiB) |
-| deno | deno-pino.ts | 5.25 (0.09) | 1.27 (0.05) | 4.18 (0.09) | 75.4 MiB (1008 KiB) |
-| python | python/json-print.py | 6.34 (0.12) | 0.21 (0.03) | 6.10 (0.1) | 9.6 MiB (61 KiB) |
-| python | python/orjson-log-opt.py | 14.64 (0.42) | 1.29 (0.09) | 13.46 (0.38) | 13.6 MiB (157 KiB) |
-| pypy | python/json-log.py | 17.22 (0.49) | 3.45 (0.08) | 13.79 (0.46) | 101.4 MiB (221 KiB) |
-| python | python/orjson-log.py | 17.64 (0.23) | 1.47 (0.09) | 16.10 (0.19) | 13.5 MiB (145 KiB) |
-| python | python/json-log.py | 23.53 (0.6) | 1.55 (0.07) | 21.86 (0.55) | 13.6 MiB (117 KiB) |
+| bun | node/node-stdout-worker.js | 0.88 (0.06) | 0.38 (0.04) | 1.05 (0.08) | 165.3 MiB (6770 KiB) |
+| bun | node/node-stdout-buffer.js | 1.06 (0.09) | 0.30 (0.04) | 0.79 (0.06) | 120.2 MiB (2287 KiB) |
+| node | node/node-stdout-worker.js | 1.64 (0.1) | 0.25 (0.03) | 2.08 (0.11) | 362.5 MiB (319 KiB) |
+| deno | deno-stdout-worker.ts | 1.92 (0.18) | 0.36 (0.03) | 2.31 (0.25) | 97.4 MiB (772 KiB) |
+| python | python/orjson-stdout.py | 1.97 (0.07) | 0.24 (0.02) | 1.72 (0.07) | 12.2 MiB (155 KiB) |
+| bun | node/node-console.js | 1.99 (0.08) | 1.06 (0.04) | 0.95 (0.06) | 116.3 MiB (1134 KiB) |
+| python | python/orjson-print.py | 2.03 (0.04) | 0.19 (0.02) | 1.83 (0.04) | 12.2 MiB (139 KiB) |
+| node | node/node-stdout-buffer.js | 2.58 (0.14) | 0.33 (0.03) | 2.43 (0.12) | 82.3 MiB (161 KiB) |
+| deno | deno-stdout-buffer.ts | 2.59 (0.18) | 0.38 (0.04) | 2.40 (0.14) | 70.3 MiB (709 KiB) |
+| bun | node/node-stream.js | 2.59 (0.06) | 1.16 (0.03) | 1.44 (0.05) | 118.9 MiB (1212 KiB) |
+| bun | node/node-pino.js | 3.35 (0.12) | 1.20 (0.04) | 2.19 (0.11) | 137.7 MiB (721 KiB) |
+| pypy | python/json-print.py | 3.47 (0.09) | 0.26 (0.02) | 3.20 (0.08) | 99.1 MiB (216 KiB) |
+| node | node/node-stream.js | 3.52 (0.15) | 1.13 (0.05) | 2.46 (0.14) | 80.3 MiB (98 KiB) |
+| deno | deno-stdout.ts | 3.76 (0.21) | 1.20 (0.1) | 2.70 (0.14) | 67.8 MiB (781 KiB) |
+| deno | deno-log-stdout.ts | 4.17 (0.13) | 1.27 (0.05) | 3.08 (0.12) | 70.3 MiB (929 KiB) |
+| deno | deno-log.ts | 4.20 (0.04) | 1.09 (0.05) | 3.16 (0.06) | 71.7 MiB (824 KiB) |
+| deno | deno-stream.ts | 4.26 (0.12) | 1.27 (0.07) | 3.17 (0.12) | 71.2 MiB (1224 KiB) |
+| deno | deno-console.ts | 4.69 (0.16) | 1.15 (0.06) | 3.61 (0.11) | 69.5 MiB (1334 KiB) |
+| node | node/node-pino.js | 4.71 (0.21) | 1.15 (0.05) | 3.62 (0.18) | 83.9 MiB (235 KiB) |
+| node | node/node-console.js | 4.85 (0.14) | 1.22 (0.05) | 3.66 (0.17) | 81.1 MiB (272 KiB) |
+| deno | deno-pino.ts | 5.23 (0.17) | 1.26 (0.07) | 4.17 (0.13) | 75.3 MiB (1350 KiB) |
+| python | python/json-print.py | 6.31 (0.24) | 0.23 (0.02) | 6.05 (0.22) | 9.4 MiB (112 KiB) |
+| python | python/orjson-log-opt.py | 14.58 (0.16) | 1.31 (0.08) | 13.23 (0.18) | 13.5 MiB (158 KiB) |
+| pypy | python/json-log.py | 17.25 (0.49) | 3.39 (0.14) | 13.90 (0.4) | 101.7 MiB (395 KiB) |
+| python | python/orjson-log.py | 18.07 (0.55) | 1.46 (0.11) | 16.49 (0.46) | 13.6 MiB (188 KiB) |
+| python | python/json-log.py | 23.85 (0.51) | 1.58 (0.06) | 22.12 (0.49) | 13.5 MiB (94 KiB) |
 
 #### CPU
 
@@ -235,52 +235,52 @@ how it probably will behave under your specific workload:
 
 | Tool | Script | Idle | CPU (slowdown) | I/O (slowdown) |
 | --- | --- | --- | --- | --- |
-| bun | node/node-stdout-worker.js | 0.92 | 1.43 (1.55) | 0.82 (0.89) |
-| bun | node/node-stdout-buffer.js | 1.07 | 1.69 (1.58) | 1.07 (1) |
-| bun | node/node-console.js | 1.94 | 2.33 (1.2) | 2.01 (1.04) |
-| bun | node/node-stream.js | 2.55 | 4.25 (1.67) | 2.63 (1.03) |
-| bun | node/node-pino.js | 3.49 | 4.48 (1.28) | 3.50 (1) |
-| deno | deno-stdout-worker.ts | 1.76 | 2.63 (1.49) | 1.72 (0.98) |
-| deno | deno-stdout-buffer.ts | 2.65 | 3.76 (1.42) | 2.67 (1.01) |
-| deno | deno-stdout.ts | 3.68 | 5.74 (1.56) | 3.75 (1.02) |
-| deno | deno-log-stdout.ts | 4.07 | 5.98 (1.47) | 4.00 (0.98) |
-| deno | deno-stream.ts | 4.15 | 6.35 (1.53) | 4.27 (1.03) |
-| deno | deno-log.ts | 4.22 | 4.68 (1.11) | 4.43 (1.05) |
-| deno | deno-console.ts | 4.59 | 5.89 (1.28) | 4.74 (1.03) |
-| deno | deno-pino.ts | 5.25 | 7.99 (1.52) | 5.50 (1.05) |
-| node | node/node-stdout-worker.js | 1.65 | 1.90 (1.15) | 1.64 (0.99) |
-| node | node/node-stdout-buffer.js | 2.63 | 3.90 (1.48) | 2.65 (1.01) |
-| node | node/node-stream.js | 3.55 | 5.13 (1.45) | 3.65 (1.03) |
-| node | node/node-pino.js | 4.60 | 5.77 (1.25) | 4.66 (1.01) |
-| node | node/node-console.js | 4.76 | 5.43 (1.14) | 4.93 (1.04) |
-| pypy | python/json-print.py | 3.45 | 3.66 (1.06) | 3.54 (1.03) |
-| pypy | python/json-log.py | 17.22 | 20.26 (1.18) | 18.37 (1.07) |
-| python | python/orjson-stdout.py | 1.88 | 2.21 (1.18) | 1.99 (1.06) |
-| python | python/orjson-print.py | 2.04 | 2.41 (1.18) | 2.10 (1.03) |
-| python | python/json-print.py | 6.34 | 7.32 (1.15) | 6.62 (1.04) |
-| python | python/orjson-log-opt.py | 14.64 | 16.00 (1.09) | 15.38 (1.05) |
-| python | python/orjson-log.py | 17.64 | 21.76 (1.23) | 19.73 (1.12) |
-| python | python/json-log.py | 23.53 | 28.08 (1.19) | 25.31 (1.08) |
+| bun | node/node-stdout-worker.js | 0.88 | 1.43 (1.63) | 0.82 (0.93) |
+| bun | node/node-stdout-buffer.js | 1.06 | 1.69 (1.59) | 1.07 (1.01) |
+| bun | node/node-console.js | 1.99 | 2.33 (1.17) | 2.01 (1.01) |
+| bun | node/node-stream.js | 2.59 | 4.25 (1.64) | 2.63 (1.02) |
+| bun | node/node-pino.js | 3.35 | 4.48 (1.34) | 3.50 (1.04) |
+| deno | deno-stdout-worker.ts | 1.92 | 2.63 (1.37) | 1.72 (0.9) |
+| deno | deno-stdout-buffer.ts | 2.59 | 3.76 (1.45) | 2.67 (1.03) |
+| deno | deno-stdout.ts | 3.76 | 5.74 (1.53) | 3.75 (1) |
+| deno | deno-log-stdout.ts | 4.17 | 5.98 (1.43) | 4.00 (0.96) |
+| deno | deno-stream.ts | 4.26 | 6.35 (1.49) | 4.27 (1) |
+| deno | deno-log.ts | 4.20 | 4.68 (1.11) | 4.43 (1.05) |
+| deno | deno-console.ts | 4.69 | 5.89 (1.26) | 4.74 (1.01) |
+| deno | deno-pino.ts | 5.23 | 7.99 (1.53) | 5.50 (1.05) |
+| node | node/node-stdout-worker.js | 1.64 | 1.90 (1.16) | 1.64 (1) |
+| node | node/node-stdout-buffer.js | 2.58 | 3.90 (1.51) | 2.65 (1.03) |
+| node | node/node-stream.js | 3.52 | 5.13 (1.46) | 3.65 (1.04) |
+| node | node/node-pino.js | 4.71 | 5.77 (1.23) | 4.66 (0.99) |
+| node | node/node-console.js | 4.85 | 5.43 (1.12) | 4.93 (1.02) |
+| pypy | python/json-print.py | 3.47 | 3.66 (1.05) | 3.54 (1.02) |
+| pypy | python/json-log.py | 17.25 | 20.26 (1.17) | 18.37 (1.06) |
+| python | python/orjson-stdout.py | 1.97 | 2.21 (1.12) | 1.99 (1.01) |
+| python | python/orjson-print.py | 2.03 | 2.41 (1.19) | 2.10 (1.03) |
+| python | python/json-print.py | 6.31 | 7.32 (1.16) | 6.62 (1.05) |
+| python | python/orjson-log-opt.py | 14.58 | 16.00 (1.1) | 15.38 (1.05) |
+| python | python/orjson-log.py | 18.07 | 21.76 (1.2) | 19.73 (1.09) |
+| python | python/json-log.py | 23.85 | 28.08 (1.18) | 25.31 (1.06) |
 
 **Slowdown aggregation**:
 
 | Tool | Slowdown (CPU) | Slowdown (I/O) | Slowdown (average) |
 | --- | --- | --- | --- |
-| pypy | 1.16 | 1.06 | 1.11 |
-| python | 1.18 | 1.08 | 1.13 |
-| node | 1.29 | 1.02 | 1.16 |
-| bun | 1.42 | 1.01 | 1.21 |
-| deno | 1.42 | 1.02 | 1.22 |
+| pypy | 1.15 | 1.06 | 1.11 |
+| python | 1.16 | 1.06 | 1.11 |
+| node | 1.28 | 1.01 | 1.15 |
+| deno | 1.4 | 1.01 | 1.21 |
+| bun | 1.44 | 1.02 | 1.23 |
 
 **Memory usage**:
 
-| Tool | Idle (MiB) | CPU (MiB) | I/O (MiB) |
-| --- | --- | --- | --- |
-| python | 12.5 | 12.6 | 12.3 |
-| deno | 74.4 | 74.5 | 74.4 |
-| pypy | 100.1 | 100.5 | 100.3 |
-| bun | 129.7 | 128.8 | 132 |
-| node | 138.1 | 138.3 | 138 |
+| Tool | Idle (median) | Idle (max) | CPU (median) | CPU (max) | I/O (median) | I/O (max) |
+| --- | --- | --- | --- | --- | --- | --- |
+| python | 13.5 | 13.6 | 13.7 | 13.7 | 13.3 | 13.5 |
+| deno | 71.2 | 97.4 | 71.6 | 97.8 | 70.9 | 98.4 |
+| node | 82.3 | 362.5 | 82.4 | 362.5 | 82.1 | 362.6 |
+| pypy | 101.7 | 101.7 | 101.5 | 101.5 | 101.7 | 101.7 |
+| bun | 120.2 | 165.3 | 120 | 149.6 | 119.7 | 168.9 |
 
 ### Key Takeaways
 
@@ -297,3 +297,6 @@ how it probably will behave under your specific workload:
    the case) which seems to come at the expense of higher memory usage
 8. the Python logging subsystem is really slow, even when various features are
    turned off and orjson is used for fast JSON serialization
+9. Node really seems to have an issue with memory management in the worker
+   thread scenario (script `node/node-stdout-worker.js`)
+
